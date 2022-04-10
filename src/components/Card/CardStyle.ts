@@ -21,6 +21,7 @@ export const ImgAndTitle = styled.div`
   align-items: center;
   position: relative;
   h3 {
+    color: #023047;
   }
 `;
 

@@ -28,7 +28,6 @@ const Home: NextPage = ({ pokemons }: { pokemons: Array<PokemonsObj> }) => {
     } else {
       setPokemonsData(pokemons);
     }
-    console.log(filteredPokemonData);
   }
 
   useEffect(() => {

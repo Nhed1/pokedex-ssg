@@ -1,0 +1,19 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  background-color: #8ecae6;
+  color: #023047;
+
+  span {
+    width: fit-content;
+    height: fit-content;
+    cursor: pointer;
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
