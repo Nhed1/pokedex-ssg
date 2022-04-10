@@ -1,11 +1,16 @@
 .container {
   width: 100vw;
   height: 100vh;
-  display: grid;
   background-color: #8ecae6;
   color: #023047;
 
+  display: grid;
+  place-items: center;
+
   span {
+    position: absolute;
+    top: 10px;
+    left: 10px;
     width: fit-content;
     height: fit-content;
     cursor: pointer;
@@ -16,4 +21,28 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+}
+
+.table {
+  width: 80%;
+  margin-bottom: 20px;
+  font-size: 1.25rem;
+  tr {
+    border: 1px #eb19b6 solid;
+    text-align: right;
+
+    th {
+      border: 1px #023047 solid;
+
+      padding: 10px;
+      text-align: left;
+    }
+
+    td {
+      border: 1px #023047 solid;
+
+      padding: 10px;
+      text-align: center;
+    }
+  }
 }

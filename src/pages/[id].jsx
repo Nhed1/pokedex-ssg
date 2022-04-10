@@ -23,7 +23,7 @@ export default function Pokemon({ pokemonData }) {
       <table className={styles.table}>
         {pokemonData.stats.map((stat) => (
           <tr key={stat.stat.name}>
-            <td>{stat.stat.name}</td>
+            <th>{stat.stat.name}</th>
             <td>{stat.base_stat}</td>
           </tr>
         ))}
