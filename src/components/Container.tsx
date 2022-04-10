@@ -4,6 +4,7 @@ interface PokemonsObj {
   url: string;
   name: string;
 }
+const pokemonsLimitNumber = 20;
 
 export default function Container({
   pokemons,
@@ -13,8 +14,8 @@ export default function Container({
   console.log(pokemons);
   return (
     <div>
-      {pokemons.map((pokemon: PokemonsObj) => (
-        <Card key={pokemon.url} name={pokemon.name} />
+      {pokemons.slice(0, pokemonsLimitNumber).map((pokemon: PokemonsObj) => (
+        <Card key={pokemon.url} name={pokemon.name} url={pokemon.url} />
       ))}
     </div>
   );

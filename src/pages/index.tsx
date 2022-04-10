@@ -3,6 +3,7 @@ import Header from "../components/Header";
 import Input from "../components/Form";
 import { GlobalStyle } from "../styles/GlobalStyles";
 import Container from "../components/Container";
+import { useEffect, useState } from "react";
 
 interface PokemonsObj {
   url: string;
@@ -10,19 +11,29 @@ interface PokemonsObj {
 }
 
 const Home: NextPage = ({ pokemons }: { pokemons: Array<PokemonsObj> }) => {
+  const [pokemonsData, setPokemonsData] = useState<Array<PokemonsObj>>();
+  const [isLoading, setIsLoading] = useState(true);
+  useEffect(() => {
+    setPokemonsData(pokemons);
+    setIsLoading(false);
+  }, []);
   return (
     <>
       <GlobalStyle></GlobalStyle>
       <Header />
       <Input />
-      <Container pokemons={pokemons} />
+      {isLoading ? (
+        <p>Loading pokemons</p>
+      ) : (
+        <Container pokemons={pokemonsData} />
+      )}
     </>
   );
 };
 
 export async function getStaticProps() {
   const res = await fetch(
-    "https://pokeapi.co/api/v2/pokemon?limit=10&offset=0"
+    "https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0"
   );
   const data = await res.json();
 
