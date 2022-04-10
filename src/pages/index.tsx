@@ -1,8 +1,11 @@
+import { useEffect, useState } from "react";
+
 import type { NextPage } from "next";
+//components
 import Header from "../components/Header/Header";
-import { GlobalStyle } from "../styles/GlobalStyles";
 import Container from "../components/ContainerCards/Container";
-import { useEffect, useRef, useState } from "react";
+//styles
+import { GlobalStyle } from "../styles/GlobalStyles";
 
 interface PokemonsObj {
   url: string;
@@ -13,17 +16,19 @@ const Home: NextPage = ({ pokemons }: { pokemons: Array<PokemonsObj> }) => {
   const [pokemonsData, setPokemonsData] = useState<Array<PokemonsObj>>();
   const [isLoading, setIsLoading] = useState(true);
   const [search, setSearch] = useState("");
-  const firstUpdate = useRef(true);
 
   function handleFilterPokemons() {
-    const filteredPokemonData = pokemonsData?.filter((pokemon) => {
-      return pokemon.name.includes(search);
+    setSearch(search.toLowerCase());
+    const filteredPokemonData = pokemons?.filter((pokemon) => {
+      const pokemonName = pokemon.name.toLowerCase();
+      return pokemonName.indexOf(search) > -1;
     });
     if (search !== "") {
       setPokemonsData(filteredPokemonData);
     } else {
       setPokemonsData(pokemons);
     }
+    console.log(filteredPokemonData);
   }
 
   useEffect(() => {
@@ -34,6 +39,7 @@ const Home: NextPage = ({ pokemons }: { pokemons: Array<PokemonsObj> }) => {
   useEffect(() => {
     handleFilterPokemons();
   }, [search]);
+
   return (
     <>
       <GlobalStyle />
