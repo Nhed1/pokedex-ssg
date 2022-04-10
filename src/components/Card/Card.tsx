@@ -8,15 +8,21 @@ type cardType = {
   url: string;
 };
 
-type pokemonType = {
+type pokemonProps = {
   sprites: {
     front_default: string;
   };
   name: string;
+  types: pokemonType[];
 };
 
+type pokemonType = {
+  type: {
+    name: string;
+  };
+};
 export default function Card({ name, url }: cardType) {
-  const [pokemon, setPokemon] = useState<pokemonType>();
+  const [pokemon, setPokemon] = useState<pokemonProps>();
   async function fetchData() {
     const res = await fetch(url);
     const data = await res.json();
@@ -24,7 +30,8 @@ export default function Card({ name, url }: cardType) {
   }
   useEffect(() => {
     fetchData();
-  });
+    console.log(pokemon?.types[0].type.name);
+  }, []);
   return (
     <Link href={`/${name}`}>
       <CardDiv>
@@ -35,7 +42,11 @@ export default function Card({ name, url }: cardType) {
           height="auto"
         />
         <h3>{name}</h3>
-        <p></p>
+        <div>
+          {pokemon?.types.map((type) => (
+            <p key={type?.type.name}>{type?.type.name}</p>
+          ))}
+        </div>
       </CardDiv>
     </Link>
   );
