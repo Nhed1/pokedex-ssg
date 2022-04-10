@@ -1,13 +1,17 @@
-import { HeaderDiv } from "./HeaderStyles";
+import { Content, HeaderDiv, Input, Title } from "./HeaderStyles";
 
 export default function Header() {
   return (
     <HeaderDiv>
-      {/* <img src="" alt="" /> */}
-      <div>
-        <h1>Pokedex SSG</h1>
-        <p>Static Site Generation - Nextjs</p>
-      </div>
+      <Content>
+        <Title>
+          <h1>Pokedex SSG</h1>
+          <p>Static Site Generation - Nextjs</p>
+        </Title>
+        <Input>
+          <input type="text" placeholder="Search for pokemons !" />
+        </Input>
+      </Content>
     </HeaderDiv>
   );
 }

@@ -1,6 +1,5 @@
 import type { NextPage } from "next";
 import Header from "../components/Header/Header";
-import Input from "../components/Form/Form";
 import { GlobalStyle } from "../styles/GlobalStyles";
 import Container from "../components/ContainerCards/Container";
 import { useEffect, useState } from "react";
@@ -21,7 +20,6 @@ const Home: NextPage = ({ pokemons }: { pokemons: Array<PokemonsObj> }) => {
     <>
       <GlobalStyle></GlobalStyle>
       <Header />
-      <Input />
       {isLoading ? (
         <p>Loading pokemons</p>
       ) : (

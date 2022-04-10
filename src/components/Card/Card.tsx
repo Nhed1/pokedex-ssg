@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { CardDiv } from "./CardStyle";
+import { CardDiv, ImgAndTitle, Tags } from "./CardStyle";
 
 type cardType = {
   name: string;
@@ -35,18 +35,22 @@ export default function Card({ name, url }: cardType) {
   return (
     <Link href={`/${name}`}>
       <CardDiv>
-        <img
-          src={pokemon?.sprites.front_default}
-          alt={pokemon?.name}
-          width={120}
-          height="auto"
-        />
-        <h3>{name}</h3>
-        <div>
+        <ImgAndTitle>
+          <img
+            src={pokemon?.sprites.front_default}
+            alt={pokemon?.name}
+            width={120}
+            height="auto"
+          />
+          <h3>{name}</h3>
+        </ImgAndTitle>
+        <Tags>
           {pokemon?.types.map((type) => (
-            <p key={type?.type.name}>{type?.type.name}</p>
+            <div key={type?.type.name}>
+              <p>{type?.type.name}</p>
+            </div>
           ))}
-        </div>
+        </Tags>
       </CardDiv>
     </Link>
   );
