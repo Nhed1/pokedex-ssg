@@ -1,4 +1,4 @@
-import { HeaderDiv } from "../styles/HeaderStyles";
+import { HeaderDiv } from "./HeaderStyles";
 
 export default function Header() {
   return (

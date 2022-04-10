@@ -5,7 +5,7 @@ export const FormDiv = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100vw;
+  margin-bottom: 20px;
 
   div {
     width: 300px;

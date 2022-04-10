@@ -1,4 +1,4 @@
-import { FormDiv } from "../styles/FormStyles";
+import { FormDiv } from "./FormStyles";
 
 export default function Form() {
   return (

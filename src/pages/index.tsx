@@ -1,8 +1,8 @@
 import type { NextPage } from "next";
-import Header from "../components/Header";
-import Input from "../components/Form";
+import Header from "../components/Header/Header";
+import Input from "../components/Form/Form";
 import { GlobalStyle } from "../styles/GlobalStyles";
-import Container from "../components/Container";
+import Container from "../components/ContainerCards/Container";
 import { useEffect, useState } from "react";
 
 interface PokemonsObj {

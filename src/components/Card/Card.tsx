@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { CardDiv } from "./CardStyle";
 
 type cardType = {
   name: string;
@@ -26,17 +27,16 @@ export default function Card({ name, url }: cardType) {
   });
   return (
     <Link href={`/${name}`}>
-      <div>
+      <CardDiv>
         <img
           src={pokemon?.sprites.front_default}
           alt={pokemon?.name}
           width={120}
           height="auto"
         />
-
         <h3>{name}</h3>
         <p></p>
-      </div>
+      </CardDiv>
     </Link>
   );
 }
