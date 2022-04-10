@@ -27,6 +27,7 @@ export const Content = styled.div`
 
   @media (min-width: 800px) {
     flex-direction: row;
+    align-items: center;
   }
 `;
 

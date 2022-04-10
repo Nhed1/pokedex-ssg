@@ -1,6 +1,12 @@
 import { Content, HeaderDiv, Input, Title } from "./HeaderStyles";
 
-export default function Header() {
+export default function Header({
+  search,
+  setSearch,
+}: {
+  search: string;
+  setSearch: (e: string) => void;
+}) {
   return (
     <HeaderDiv>
       <Content>
@@ -9,7 +15,12 @@ export default function Header() {
           <p>Static Site Generation - Nextjs</p>
         </Title>
         <Input>
-          <input type="text" placeholder="Search for pokemons !" />
+          <input
+            type="text"
+            placeholder="Search for pokemons !"
+            onChange={(e) => setSearch(e.target.value)}
+            value={search}
+          />
         </Input>
       </Content>
     </HeaderDiv>

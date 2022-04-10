@@ -1,19 +1,20 @@
 import { useRouter } from "next/router";
+import { IoIosArrowRoundBack } from "react-icons/io";
 import { GetStaticPaths } from "next";
+import PokemonHeader from "../components/PokemonHeader/PokemonHeader";
+import { PokemonDiv } from "../styles/PokemonPageStyles";
+import { GlobalStyle } from "../styles/GlobalStyles";
+
 import Link from "next/link";
 export default function Pokemon({ pokemonData }) {
-  console.log(pokemonData);
   return (
-    <div>
-      <header>
-        <Link href="/">
-          <img src="" alt="Voltar" />
-        </Link>
-      </header>
-      <div>
-        <img src={pokemonData.sprites.front_default} alt={pokemonData.name} />
-        <h1>{pokemonData.name}</h1>
-      </div>
+    <PokemonDiv>
+      <GlobalStyle />
+      <Link href="/">
+        <IoIosArrowRoundBack size="2.2rem" />
+      </Link>
+
+      <PokemonHeader pokemonData={pokemonData} />
       <table>
         {pokemonData.stats.map((stat) => (
           <tr key={stat.stat.name}>
@@ -22,7 +23,7 @@ export default function Pokemon({ pokemonData }) {
           </tr>
         ))}
       </table>
-    </div>
+    </PokemonDiv>
   );
 }
 
