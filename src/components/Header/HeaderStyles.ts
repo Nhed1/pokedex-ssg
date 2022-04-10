@@ -31,15 +31,19 @@ export const Content = styled.div`
 `;
 
 export const Title = styled.div`
-  padding: 10px 100px;
+  padding: 10px 60px;
   display: flex;
   flex-direction: column;
   justify-content: left;
   color: #8ecae6;
+
+  @media (min-width: 800px) {
+    margin: 10px 60px;
+  }
 `;
 
 export const Input = styled.div`
-  padding: 10px 100px;
+  padding: 10px 60px;
   color: #023047;
   input {
     font-size: 1.2rem;
@@ -49,6 +53,7 @@ export const Input = styled.div`
   }
 
   @media (min-width: 800px) {
+    padding: 10px 100px;
     input {
       height: 36px;
       width: 200px;

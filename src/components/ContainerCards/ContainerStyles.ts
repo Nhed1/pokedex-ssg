@@ -4,14 +4,18 @@ export const ContainerDiv = styled.div`
   max-width: 100%;
   display: grid;
   gap: 30px;
-  margin: 40px 100px;
+  margin: 40px 40px;
   grid-template-columns: repeat(1, 1fr);
 
   @media (min-width: 800px) {
+    margin: 40px 100px;
+
     grid-template-columns: repeat(2, 1fr);
   }
 
   @media (min-width: 1200px) {
+    margin: 40px 100px;
+
     grid-template-columns: repeat(3, 1fr);
   }
 `;
